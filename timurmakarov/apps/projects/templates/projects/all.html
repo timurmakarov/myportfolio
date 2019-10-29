@@ -27,13 +27,13 @@
 			{% for a in all_projects_list %}
 			<div class="col-md-4" style="padding: 15px;">
 				
-				<div class="solo-item" style="background-image: url(img/akbb-project_blur-bg.png); background-size: 100%">
+				<div class="solo-item" style="background-image: url({{ a.project_cover.url }}); background-size: cover;">
 					<div class="solo-item__badge">
 						<p>{{a.project_type}}</p>
 					</div>
 					<p class="project-card__name">{{a.project_client}}</p>
 					<p>{{a.project_title}}</p>
-					<a href="{% url 'projects:about' a.id %}" style="color: white">Перейти</a>
+					<a href="{% url 'projects:about' a.id %}" style="color: white;">Перейти</a>
 				</div>
 				
 			</div>{% endfor %}

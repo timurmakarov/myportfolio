@@ -5,88 +5,83 @@
     <meta name="viewport" content="width=device-width">
     <title>Я, Тимур Макаров</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,500,600,700,800&display=swap"
-          rel="stylesheet">
+    rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1><span style="color: #2400FF;">Я</span>, Тимур Макаров</h1>
-            <p class="main-page_description">веб, моушен, диджитал, 3D, HTML5, CSS</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1><span style="color: #2400FF;">Я</span>, Тимур Макаров</h1>
+                <p class="main-page_description">веб, моушен, диджитал, 3D, HTML5, CSS</p>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="container project">
-    <h2>Последние работы:</h2>
-    <div class="row project-item">
-        {% extends 'base.html' %}
-        {% load static %}
-        {% block title %} Последние работы {% endblock %}
-        {% block content %}
+    <div class="container project">
+        <h2>Последние работы:</h2>
+        <div class="row project-item">
+            {% extends 'base.html' %}
+            {% load static %}
+            {% block title %} Последние работы {% endblock %}
+            {% block content %}
             {% if latest_projects_list %}
-                {% for a in latest_projects_list %}
+            {% for a in latest_projects_list %}
 
-                    <div class="col-md-4" style="padding: 15px;">
-
-                                <div class="solo-item">
-
-
-
-
-                                <div class="solo-item__badge">
-                                    <p>{{ a.project_type }}</p>
-                                </div>
-                                <p class="project-card__name">{{ a.project_client }}</p>
-                                <p>{{ a.project_title }}</p>
-                                <a class="watch-solo-project__btn" href="{% url 'projects:about' a.id %}"
-                                   style="color: white">Посмотреть</a>
-
-                            </div>
-
+            <div class="col-md-4" style="padding: 15px;">
+                <div class="solo-item" style="background-image: url({{ a.project_cover.url }}); background-size: cover;">
+                    <div class="solo-item__badge">
+                        <p>{{ a.project_type }}</p>
                     </div>
-
-
-                {% endfor %}
+                    <p class="project-card__name">{{ a.project_client }}</p>
+                    <p>{{ a.project_title }}</p>
+                    <a class="watch-solo-project__btn" href="{% url 'projects:about' a.id %}"
+                    style="color: white; display: block; height: 90%; width: 100%"></a>
 
                 </div>
 
+            </div>
 
 
-                <a href="{% url 'projects:all' %}">Смотреть все
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 5L19 12L12 19M5 12H18H5Z" stroke="#2400FF" stroke-linecap="round"
-                              stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                </div>
+            {% endfor %}
 
-                <div class="container">
-                    <h2>Контакты</h2>
-                    <div class="row contacts">
-                        <div class="col-md-4">
-                            <a href="tel:89872895075">+79872895075</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="mailto:hi@timurmakarov.ru">hi@timurmakarov.ru</a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="https://teleg.one/timurmakarov">@timurmakarov</a>
-                        </div>
-                    </div>
-                </div>
+        </div>
 
 
-            {% else %}
-                Проекты не найдены!
-            {% endif %}
+
+        <a href="{% url 'projects:all' %}">Смотреть все
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5L19 12L12 19M5 12H18H5Z" stroke="#2400FF" stroke-linecap="round"
+                stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="container сontacts-parrent">
+        <h2>Контакты</h2>
+        <div class="row contacts">
+            <div class="col-md-4">
+                <a href="tel:89872895075">+79872895075</a>
+            </div>
+            <div class="col-md-4">
+                <a href="mailto:hi@timurmakarov.ru">hi@timurmakarov.ru</a>
+            </div>
+            <div class="col-md-4">
+                <a href="https://teleg.one/timurmakarov">@timurmakarov</a>
+            </div>
+        </div>
+    </div>
 
 
-            <img src="">
+    {% else %}
+    Проекты не найдены!
+    {% endif %}
 
-        {% endblock %}
+
+    <img src="">
+
+    {% endblock %}
 </body>
 </html>
