@@ -4,6 +4,7 @@ from .models import Snippet
 
 from .models import Project
 
+
 admin.site.register(Project)
 
 admin.site.site_header = 'Timur Makarov Dashboard'

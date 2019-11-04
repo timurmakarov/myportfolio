@@ -1,4 +1,5 @@
 from django.db import models
+from mdeditor.fields import MDTextField
 
 class Project(models.Model):
 	project_client = models.CharField('Название компании', max_length = 48)
@@ -8,6 +9,7 @@ class Project(models.Model):
 	project_body = models.TextField('Тело проекта')
 	project_cover = models.ImageField('Обложка проекта', upload_to='upload')
 	pub_date = models.DateTimeField('Дата публикации')
+	content = MDTextField()
 
 	def __str__(self):
 		return self.project_title
@@ -26,4 +28,3 @@ class Snippet(models.Model):
 
 	def body_preview(self):
 		return self.body[:50]
-		
