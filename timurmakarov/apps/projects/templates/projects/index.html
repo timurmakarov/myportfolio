@@ -6,82 +6,142 @@
     <title>Я, Тимур Макаров</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <script src="https://kit.fontawesome.com/1e6d4bcd53.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,500,600,700,800&display=swap"
     rel="stylesheet">
+
+    <script>
+      $(window).on('load', function () {
+        $preloader = $('.loaderArea'),
+        $loader = $preloader.find('.loader');
+        $loader.fadeOut();
+        $preloader.delay(350).fadeOut('slow');
+    });
+</script>
+
+<script type="text/javascript">
+    function clock() {
+        var d = new Date();
+        var month_num = d.getMonth()
+        var day = d.getDate();
+        var hours = d.getHours();
+        var minutes = d.getMinutes();
+        var seconds = d.getSeconds();
+
+        month=new Array("января", "февраля", "марта", "апреля", "мая", "июня",
+            "июля", "августа", "сентября", "октября", "ноября", "декабря");
+
+        if (day <= 9) day = "0" + day;
+        if (hours <= 9) hours = "0" + hours;
+        if (minutes <= 9) minutes = "0" + minutes;
+        if (seconds <= 9) seconds = "0" + seconds;
+
+        date_time = "Сегодня - " + day + " " + month[month_num] + " " + d.getFullYear() +
+        " г.&nbsp;&nbsp;&nbsp;Текущее время - "+ hours + ":" + minutes + ":" + seconds;
+        if (document.layers) {
+           document.layers.doc_time.document.write(date_time);
+           document.layers.doc_time.document.close();
+       }
+       else document.getElementById("doc_time").innerHTML = date_time;
+       setTimeout("clock()", 1000);
+   }
+</script>
+
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1><span style="color: #2400FF;">Я</span>, Тимур Макаров</h1>
-                <p class="main-page_description">веб, моушен, диджитал, 3D, HTML5, CSS</p>
-            </div>
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1><span style="color: #2400FF;">Я</span>, Тимур Макаров</h1>
+            <p class="main-page_description">веб, моушен, диджитал, 3D, HTML5, CSS</p>
         </div>
     </div>
+</div>
 
-    <div class="container project">
-        <h2>Последние работы:</h2>
-        <div class="row project-item">
-            {% extends 'base.html' %}
-            {% load static %}
-            {% block title %} Последние работы {% endblock %}
-            {% block content %}
-            {% if latest_projects_list %}
-            {% for a in latest_projects_list %}
+<div class="container project">
+    <h2>Последние работы:</h2>
+    <div class="row project-item">
+        {% extends 'base.html' %}
+        {% load static %}
+        {% block title %} Последние работы {% endblock %}
+        {% block content %}
+        {% if latest_projects_list %}
+        {% for a in latest_projects_list %}
 
-            <div class="col-md-4" style="padding: 15px;">
-                <div class="solo-item" style="background-image: url({{ a.project_cover.url }}); background-size: cover;">
-                    <div class="solo-item__badge">
-                        <p>{{ a.project_type }}</p>
-                    </div>
-                    <p class="project-card__name">{{ a.project_client }}</p>
-                    <p>{{ a.project_title }}</p>
-                    <a class="watch-solo-project__btn" href="{% url 'projects:about' a.id %}"
-                    style="color: white; display: block; height: 90%; width: 100%"></a>
-
+        <div class="col-md-4 solo-item__block" style="padding: 15px;">
+            <div class="solo-item" style="background-image: url({{ a.project_cover.url }}); background-size: cover;">
+                <div class="solo-item__badge">
+                    <p>{{ a.project_type }}</p>
                 </div>
+                <p class="project-card__name">{{ a.project_client }}</p>
+                <p>{{ a.project_title }}</p>
+                <a class="watch-solo-project__btn" href="{% url 'projects:about' a.id %}"
+                style="color: white; display: block; height: 90%; width: 100%"></a>
 
             </div>
-
-
-            {% endfor %}
 
         </div>
 
 
+        {% endfor %}
 
-        <a href="{% url 'projects:all' %}">Смотреть все
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 5L19 12L12 19M5 12H18H5Z" stroke="#2400FF" stroke-linecap="round"
-                stroke-linejoin="round"/>
-            </svg>
-        </a>
     </div>
 
-    <div class="container сontacts-parrent">
-        <h2>Контакты</h2>
-        <div class="row contacts">
-            <div class="col-md-4">
-                <a href="tel:89872895075">+79872895075</a>
-            </div>
-            <div class="col-md-4">
-                <a href="mailto:hi@timurmakarov.ru">hi@timurmakarov.ru</a>
-            </div>
-            <div class="col-md-4">
-                <a href="https://teleg.one/timurmakarov">@timurmakarov</a>
-            </div>
+
+
+    <a href="{% url 'projects:all' %}">Смотреть все
+        <span style="margin-left: 15px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5L19 12L12 19M5 12H18H5Z" stroke="#2400FF" stroke-linecap="round"
+            stroke-linejoin="round"/>
+        </span>
+        </svg>
+    </a>
+</div>
+
+<div class="container сontacts-parrent">
+    <h2>Контакты</h2>
+    <div class="row contacts">
+        <div class="col-md-4">
+            <i class="fas fa-phone-square-alt"></i>
+            <a href="tel:89872895075">+79872895075</a>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:hi@timurmakarov.ru">hi@timurmakarov.ru</a>
+        </div>
+        <div class="col-md-4">
+            <i class="fab fa-telegram-plane"></i>
+            <a href="https://teleg.one/timurmakarov">@timurmakarov</a>
         </div>
     </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="footer-desc">
+             Дизайн сайта на Figma, вёрстка на Bootstrap, бэкенд на Python Django  
+         </p>
+     </div>
+     <div class="col-md-12 date-time">
+         <span id="doc_time">
+             Дата и время
+         </span>
+         <script type="text/javascript">
+           clock();
+       </script>
+   </div>
+</div>
+</div>
 
 
-    {% else %}
-    Проекты не найдены!
-    {% endif %}
+{% else %}
+Проекты не найдены!
+{% endif %}
 
 
-    <img src="">
+<img src="">
 
-    {% endblock %}
+{% endblock %}
 </body>
 </html>

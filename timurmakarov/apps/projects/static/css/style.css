@@ -1,4 +1,5 @@
 body {
+    animation: fadein 1s;
     margin-top: 60px;
     background-color: #F8F8F8 !important;
     font-family: 'Montserrat', sans-serif;
@@ -23,7 +24,7 @@ h2 {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 18px;
     color: #828282;
 }
 
@@ -33,16 +34,16 @@ h2 {
 
 .solo-item {
     padding-top: 80px;
-    box-shadow: 0px 5px 9.5px 0.5px rgba(0, 1, 5, 0.25);
+    box-shadow: 0px 5px 12.5px 0.5px rgba(0, 1, 5, 0.15);
     padding-left: 20px;
     border-radius: 6px;
     height: 250px;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
 }
 
 .solo-item:hover {
-   
-    transition-duration: .3s;
-    transition-timing-function: ease-out;
+
     box-shadow: 0px 5px 13.5px 0.5px rgba(0, 1, 5, 0.35);
 }
 
@@ -53,6 +54,15 @@ h2 {
     font-size: 30px;
     line-height: 37px;
     color: #FFFFFF;
+}
+
+.solo-item__block {
+    transition-timing-function: ease-out;
+    transition-duration: .5s;
+}
+
+.solo-item__block:hover {
+    transform: scale(1.02);
 }
 
 .watch-solo-project__btn {
@@ -93,17 +103,111 @@ h2 {
     font-size: 14px;
     float: right;
     text-decoration-line: underline;
-
     color: #000000;
 }
 
 .contacts {
     margin-top: 40px !important;
-    font-size: 20px;
+    font-size: 16px;
     color: #828282;
+}
+
+.contacts A {
+    color: #828282;
+    text-decoration: underline;
+}
+
+.contacts A:hover {
+    color: #565656;
     text-decoration: underline;
 }
 
 .сontacts-parrent {
     margin-top: 80px;
+}
+
+.footer-desc {
+    margin-top: 60px;
+    text-align: center;
+    color: lightgrey;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.date-time {
+    text-align: center;
+    color: lightgrey;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.solo-item__menu A {
+    color: #2400FF;
+    font-weight: 700;
+    font-size: 14px;
+    border: 1px solid #2400FF;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    padding: 5px 10px 5px 10px;
+    transition-timing-function: ease-out;
+    transition-duration: .2s;
+}
+
+.solo-item__menu A:hover {
+    box-shadow: 0px 0px 20px rgba(36, 0, 255, 0.4);
+    text-decoration: none;
+    color: white;
+    background-color: #2400FF;
+}
+
+
+.back-btn {
+    margin-bottom: 36px !important;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    float: left;
+    text-decoration-line: underline;
+    color: #000000;    
+}
+
+.active {
+    box-shadow: 0px 0px 20px rgba(36, 0, 255, 0.4);
+    text-decoration: none;
+    color: white !important;
+    background-color: #2400FF;
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
 }

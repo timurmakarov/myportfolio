@@ -19,5 +19,13 @@ def about(request, project_id):
 
 	return render(request, 'projects/about.html', {'project': a})
 
+def viewsnProjects(request):
+	snres = Project.objects.filter(project_type = "Социальные сети")
+	return render(request, 'projects/socialnetwork.html', {'snres': snres})
+
+def viewhtml5bannersProjects(request):
+	html5res = Project.objects.filter(project_type = "HTML5 баннеры")
+	return render(request, 'projects/html5banners.html', {'html5res': html5res})
+
 
 

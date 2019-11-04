@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Я, Тимур Макаров</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Работы</h1>
+			</div>
+		</div>
+	</div>
+
+	{% extends 'nav.html' %}
+	{% block content %}
+
+	<div class="container project">
+		<div class="row project-item">
+			{% if html5res %}
+			{% for a in html5res %}
+			<div class="col-md-4 solo-item__block" style="padding: 15px;">
+				<div class="solo-item" style="background-image: url({{ a.project_cover.url }}); background-size: cover;">
+					<div class="solo-item__badge">
+						<p>{{ a.project_type }}</p>
+					</div>
+					<p class="project-card__name">{{ a.project_client }}</p>
+					<p>{{ a.project_title }}</p>
+					<a class="watch-solo-project__btn" href="{% url 'projects:about' a.id %}"
+					style="color: white; display: block; height: 90%; width: 100%"></a>
+
+				</div>
+
+			</div>
+
+
+			{% endfor %}
+
+		</div>
+	</div>
+
+
+	{% else %}
+	Проекты не найдены!
+	{% endif %}
+	{% endblock %}
+</body>
+</html>
