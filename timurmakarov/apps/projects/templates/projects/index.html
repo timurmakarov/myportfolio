@@ -39,17 +39,17 @@
         date_time = "Сегодня - " + day + " " + month[month_num] + " " + d.getFullYear() +
         " г.&nbsp;&nbsp;&nbsp;Текущее время - "+ hours + ":" + minutes + ":" + seconds;
         if (document.layers) {
-           document.layers.doc_time.document.write(date_time);
-           document.layers.doc_time.document.close();
-       }
-       else document.getElementById("doc_time").innerHTML = date_time;
-       setTimeout("clock()", 1000);
-   }
+         document.layers.doc_time.document.write(date_time);
+         document.layers.doc_time.document.close();
+     }
+     else document.getElementById("doc_time").innerHTML = date_time;
+     setTimeout("clock()", 1000);
+ }
 </script>
 
 </head>
 <body>
- <div class="container">
+   <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h1><span style="color: #2400FF;">Я</span>, Тимур Макаров</h1>
@@ -94,25 +94,29 @@
             <path d="M12 5L19 12L12 19M5 12H18H5Z" stroke="#2400FF" stroke-linecap="round"
             stroke-linejoin="round"/>
         </span>
-        </svg>
-    </a>
+    </svg>
+</a>
 </div>
 
 <div class="container сontacts-parrent">
     <h2>Контакты</h2>
     <div class="row contacts">
+
         <div class="col-md-4">
             <i class="fas fa-phone-square-alt"></i>
             <a href="tel:89872895075">+79872895075</a>
         </div>
+
         <div class="col-md-4">
             <i class="fas fa-envelope"></i>
             <a href="mailto:hi@timurmakarov.ru">hi@timurmakarov.ru</a>
         </div>
+
         <div class="col-md-4">
             <i class="fab fa-telegram-plane"></i>
             <a href="https://teleg.one/timurmakarov">@timurmakarov</a>
         </div>
+
     </div>
 </div>
 
@@ -120,18 +124,18 @@
     <div class="row">
         <div class="col-md-12">
             <p class="footer-desc">
-             Дизайн сайта на Figma, вёрстка на Bootstrap, бэкенд на Python Django  
-         </p>
+               Дизайн сайта на Figma, вёрстка на Bootstrap, бэкенд на Python Django  
+           </p>
+       </div>
+       <div class="col-md-12 date-time">
+           <span id="doc_time">
+               Дата и время
+           </span>
+           <script type="text/javascript">
+             clock();
+         </script>
      </div>
-     <div class="col-md-12 date-time">
-         <span id="doc_time">
-             Дата и время
-         </span>
-         <script type="text/javascript">
-           clock();
-       </script>
-   </div>
-</div>
+ </div>
 </div>
 
 
